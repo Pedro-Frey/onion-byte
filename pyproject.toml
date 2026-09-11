@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "onion-byte"
+version = "0.1.0"
+description = "Lead enrichment API"
+authors = ["Admin <admin@example.com>"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
