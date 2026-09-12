@@ -24,7 +24,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     // Fetch current user
     api.get('/users/me')
       .then(res => setUser(res.data))
-      .catch(() => router.push('/login'));
+      .catch(() => {
+        // [DEV MODE] Ignora o erro e cria usuário falso
+        setUser({ email: 'admin@onionbyte.com', company_name: 'Modo de Teste' });
+      });
   }, [router]);
 
   const navItems = [

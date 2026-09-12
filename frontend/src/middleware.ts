@@ -9,7 +9,8 @@ export function middleware(request: NextRequest) {
   const isDashboardPage = request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/leads') || request.nextUrl.pathname.startsWith('/icp');
 
   if (!token && isDashboardPage) {
-    return NextResponse.redirect(new URL('/login', request.url));
+    // [DEV MODE] Bloqueio removido para testes do frontend na Vercel
+    // return NextResponse.redirect(new URL('/login', request.url));
   }
 
   if (token && isAuthPage) {

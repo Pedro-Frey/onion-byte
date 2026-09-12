@@ -83,8 +83,18 @@ export default function LoginPage() {
             <Button type="submit" className="w-full" isLoading={loading}>
               Entrar
             </Button>
+
+            <Button 
+              type="button" 
+              className="w-full bg-green-600 hover:bg-green-700 mt-2" 
+              onClick={() => {
+                window.location.href = '/dashboard';
+              }}
+            >
+              🚀 Pular Login (Ver Dashboard)
+            </Button>
             
-            <div className="text-center text-sm">
+            <div className="text-center text-sm mt-4">
               <span className="text-gray-600">Não tem uma conta? </span>
               <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500">
                 Registre-se

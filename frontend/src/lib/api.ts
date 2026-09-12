@@ -39,9 +39,10 @@ api.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   if (error.response && error.response.status === 401) {
-    if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
-      window.location.href = '/login';
-    }
+    // [DEV MODE] Comentado para testes
+    // if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
+    //   window.location.href = '/login';
+    // }
   }
   return Promise.reject(error);
 });
