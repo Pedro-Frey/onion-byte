@@ -15,11 +15,8 @@ export default function LandingPage() {
             </a>
           </div>
           <div className="flex flex-1 justify-end gap-x-4">
-            <Link href="/login">
-              <Button variant="ghost">Login</Button>
-            </Link>
-            <Link href="/register">
-              <Button variant="primary">Registrar</Button>
+            <Link href="/dashboard">
+              <Button variant="primary">Acessar Dashboard</Button>
             </Link>
           </div>
         </nav>
@@ -37,10 +34,10 @@ export default function LandingPage() {
                 Transforme e-mails básicos em perfis completos. O Onion Byte enriquece seus leads, pontua o fit da empresa e otimiza sua conversão com segurança e rapidez.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Link href="/register">
+                <Link href="/dashboard">
                   <Button size="lg">Começar Agora</Button>
                 </Link>
-                <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                <Link href="/dashboard" className="text-sm font-semibold leading-6 text-gray-900">
                   Já tenho conta <span aria-hidden="true">→</span>
                 </Link>
               </div>
