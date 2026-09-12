@@ -37,6 +37,6 @@ export function TableRow({ children, onClick }: { children: React.ReactNode, onC
   );
 }
 
-export function TableCell({ children }: { children: React.ReactNode }) {
-  return <td className="px-6 py-4">{children}</td>;
+export function TableCell({ children, className = "", ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) {
+  return <td className={`px-6 py-4 ${className}`} {...props}>{children}</td>;
 }
