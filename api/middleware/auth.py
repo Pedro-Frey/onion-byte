@@ -39,11 +39,24 @@ def decode_access_token(token: str) -> dict:
 async def get_current_user(
     db: AsyncSession = Depends(get_db)
 ) -> User:
-    """Extrai e retorna o usuário logado a partir do token Bearer JWT."""
+    """DEV MODE: Retorna usuário de teste e salva no banco se não existir."""
     result = await db.execute(select(User))
     user = result.scalars().first()
     if not user:
-        user = User(id="teste", email="teste@onionbyte.com", company_name="Modo de Teste")
+        import uuid
+        import bcrypt
+        new_id = uuid.uuid4()
+        hashed = bcrypt.hashpw(b"test1234", bcrypt.gensalt()).decode("utf-8")
+        user = User(
+            id=new_id, 
+            email="teste@onionbyte.com", 
+            hashed_password=hashed, 
+            company_name="Modo de Teste",
+            api_key="test-key"
+        )
+        db.add(user)
+        await db.commit()
+        await db.refresh(user)
     return user
 
 async def get_current_user_by_api_key(
